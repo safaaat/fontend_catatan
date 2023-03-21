@@ -5,12 +5,13 @@ import { updatePas } from '../features/formRegisLogin';
 import { LoginUser } from '../features/restApiLoginRegister';
 import { useNavigate } from "react-router-dom";
 import classValidasiForm from '../utils/classValidasiForm';
+import Loading from './Loading';
 
 const Login = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const { booleanPas } = useSelector(state => state.formRegisLogin);
-    const { user, isSuccess, message } = useSelector(state => state.loginRegis)
+    const { user, isSuccess, message, isLoading } = useSelector(state => state.loginRegis)
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
@@ -43,6 +44,10 @@ const Login = () => {
 
     return (
         <>
+            {isLoading && (
+                <Loading />
+            )}
+
             <div className='flex flex-col justify-center items-center'>
                 <h1 className="font-bold text-3xl">Hello again!</h1>
                 <h3 className="mt-2">Welcome back you've been missed</h3>
