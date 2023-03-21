@@ -8,9 +8,10 @@ import { updateActive } from "../features/onOffAddFolder";
 import AddFolder from "../components/AddFolder";
 import { getFolder, resetSuccess } from "../features/restApiFolder";
 import AlertRemoveFolder from "../components/AlertRemoveFolder";
+import LoadingFolder from "../components/LoadingFolder";
 
 const Folder = () => {
-    const { dataFolder } = useSelector(state => state.folder);
+    const { dataFolder, isLoading } = useSelector(state => state.folder);
     const { user } = useSelector(state => state.loginRegis);
     const { isSuccess } = useSelector(state => state.folder);
     const [activeAlert, setActiveAlert] = useState(false);
@@ -33,21 +34,25 @@ const Folder = () => {
         <>
             <div className="container-app relative">
                 <NavTop data={dataFolder} tipe={"folder"} setActiveAlert={setActiveAlert} />
-
-                {dataFolder.length === 0
-                    ? (
-                        <div className="w-full">
-                            <div className="flex flex-col items-center justify-center w-full py-8">
-                                <img
-                                    src={process.env.PUBLIC_URL + "/img-empty.png"}
-                                    alt="img-empty"
-                                    className="w-[20rem]"
-                                />
-                                <p className="font-medium text-gray-400 mt-2">No Folder</p>
-                            </div>
-                        </div>
-                    )
-                    : <DisplayFolder />
+                {isLoading && dataFolder.length === 0
+                    ? <LoadingFolder />
+                    : <>
+                        {dataFolder.length === 0
+                            ? (
+                                <div className="w-full">
+                                    <div className="flex flex-col items-center justify-center w-full py-8">
+                                        <img
+                                            src={process.env.PUBLIC_URL + "/img-empty.png"}
+                                            alt="img-empty"
+                                            className="w-[20rem]"
+                                        />
+                                        <p className="font-medium text-gray-400 mt-2">No Folder</p>
+                                    </div>
+                                </div>
+                            )
+                            : <DisplayFolder />
+                        }
+                    </>
                 }
 
                 <div className="fixed bottom-0 z-10 w-full sm:w-auto ">
