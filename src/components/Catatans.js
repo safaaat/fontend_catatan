@@ -2,11 +2,12 @@ import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { getCatatan, handleCekbox, resetMessage } from "../features/restApiCatatans";
 import { hiddenForm, onOffCatatan, updateUser } from "../features/onOffAddCatatan";
+import LoadingCatatan from "./LoadingCatatan";
 
 const Catatans = ({ catatans }) => {
     const { user } = useSelector(state => state.loginRegis);
     const { activeChekbox } = useSelector(state => state.onOffFormCatatan);
-    const { checkeds, message } = useSelector(state => state.catatan);
+    const { checkeds, message, isLoading } = useSelector(state => state.catatan);
     const dispatch = useDispatch();
 
     useEffect(() => {
@@ -34,6 +35,10 @@ const Catatans = ({ catatans }) => {
     return (
         <>
             <div className="px-5 py-3">
+                {isLoading && catatans.length === 0 && (
+                    <LoadingCatatan />
+                )}
+
                 {catatans.length !== 0 && catatans
                     ? (
                         <div className="grid gap-2 h-auto">
