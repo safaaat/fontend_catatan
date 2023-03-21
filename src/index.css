@@ -1,13 +1,163 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Animasi */
+.slide-out-bottom {
+	-webkit-animation: slide-out-bottom 800ms cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+	        animation: slide-out-bottom 800ms cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+}
+@-webkit-keyframes slide-out-bottom {
+    0% {
+      -webkit-transform: translateY(0);
+              transform: translateY(0);
+      opacity: 1;
+    }
+    100% {
+      -webkit-transform: translateY(1000px);
+              transform: translateY(1000px);
+      opacity: 0;
+    }
+}
+@keyframes slide-out-bottom {
+    0% {
+      -webkit-transform: translateY(0);
+              transform: translateY(0);
+      opacity: 1;
+    }
+    100% {
+      -webkit-transform: translateY(1000px);
+              transform: translateY(1000px);
+      opacity: 0;
+    }
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.slide-in-bottom {
+	-webkit-animation: slide-in-bottom 800ms cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+	        animation: slide-in-bottom 800ms cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+}
+@-webkit-keyframes slide-in-bottom {
+    0% {
+      -webkit-transform: translateY(1000px);
+              transform: translateY(1000px);
+      opacity: 0;
+    }
+    100% {
+      -webkit-transform: translateY(0);
+              transform: translateY(0);
+      opacity: 1;
+    }
+}
+@keyframes slide-in-bottom {
+    0% {
+      -webkit-transform: translateY(1000px);
+              transform: translateY(1000px);
+      opacity: 0;
+    }
+    100% {
+      -webkit-transform: translateY(0);
+              transform: translateY(0);
+      opacity: 1;
+    }
+}
+  
+/* Animasi End */
+
+.container-app{
+    @apply w-full sm:w-[40rem] mx-auto
+}
+
+/* Login Register*/
+.dimensi-form{
+    @apply w-[67%] sm:w-[60%]
+}
+.parent_input{
+    @apply relative 
+}
+.parent_text-input{
+    @apply transition-all top-[20%] px-4 z-[1] absolute
+    group-focus-within:top-[0%] group-focus-within:text-xs group-focus-within:z-[2]
+}
+.text-input_active{
+    @apply transition-all px-4 absolute top-[0%] text-xs z-[2]
+}
+.input-form{
+    @apply w-full text-base pt-4 pb-2 px-4 relative z-[1] bg-white/60 focus:outline-none focus:ring-2 focus:ring-color-primary rounded-lg
+}
+.input-form_active{
+    @apply w-full text-base pt-4 pb-2 px-4 relative z-[1] bg-white/60 focus:outline-none ring-2 ring-red-400 rounded-lg
+}
+.btn_form{
+    @apply bg-red-400 py-2 text-white transition-all duration-300 hover:bg-red-500 w-full rounded-lg mt-9
+}
+.btn_form-hidden{
+    @apply bg-gray-300/50 py-2 text-black/30 duration-300 w-full rounded-lg mt-9 cursor-not-allowed
+}
+.validasi_msg{
+    @apply absolute text-xs text-red-400 mt-[2px]
+}
+/* Login Register End*/
+
+/* BtnSignRegis */
+.btn_regis-sign{
+    @apply rounded-lg py-2
+}
+/* BtnSignRegis End */
+
+/* Home */
+.parent_judul{
+    @apply absolute top-[6px] 360:top-1 z-10
+}
+.parent_judul-active{
+    @apply fixed z-[10] top-[6px] 360:top-[6px]
+}
+.parent_icon-home{
+    @apply absolute right-0 bottom-0 w-full 
+}
+.parent_icon-home-active{
+    @apply fixed bg-white w-full sm:left-0
+}
+.btn_logout{
+    @apply absolute z-[10] right-0 bottom-[-2.5rem]
+}
+.btn_logout_active{
+    @apply fixed z-[1] w-full sm:w-auto
+}
+/* Home End */
+
+/* Form Add Catatan */
+.add-catatan_textarea{
+    @apply w-full h-[59px] focus:outline-none px-2 mt-4 resize-none
+}
+.add-catatan_textarea::-webkit-scrollbar{
+    @apply w-0
+}
+.parent_form-add-catatan{
+    @apply absolute top-0 rounded-t-3xl z-50 w-full h-full transition-all duration-700
+}
+.parent_form-add-catatan_active{
+    @apply absolute top-0 rounded-t-3xl z-50 w-full h-screen transition-all duration-700
+}
+/* Form Add Catatan End */
+
+/* Catatans */
+.box-catatan{
+    @apply bg-purple-200 rounded-lg px-3 pb-2 pt-1 cursor-pointer relative transition-all duration-300
+}
+.parent_checkbox{
+    @apply absolute bg-transparent w-full h-full flex px-2 rounded-lg
+}
+/* Catatans End */
+
+/* Display Folder */
+.box-folder{
+    @apply flex items-center px-2 gap-2 cursor-pointer relative bg-white transition-all duration-300
+}
+/* Display Folder End */
+
+/* Notfound */
+/* Notfound end */
+.text-404{
+    @apply text-[15rem] text-color-primary relative
+    before:absolute before:top-[4rem] before:left-0 before:w-full before:h-[70%]
 }
