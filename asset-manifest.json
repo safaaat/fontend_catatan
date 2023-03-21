@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/fontend_catatan/static/css/main.8ad4fa58.css",
+    "main.js": "/fontend_catatan/static/js/main.61122b77.js",
+    "index.html": "/fontend_catatan/index.html",
+    "main.8ad4fa58.css.map": "/fontend_catatan/static/css/main.8ad4fa58.css.map",
+    "main.61122b77.js.map": "/fontend_catatan/static/js/main.61122b77.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.8ad4fa58.css",
+    "static/js/main.61122b77.js"
+  ]
+}
