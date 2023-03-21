@@ -92,7 +92,7 @@ const Register = () => {
                             <div className={classParagraph("password")}>
                                 <p>Password</p>
                             </div>
-                            <div className="absolute h-full flex items-center right-0 pr-4 z-[2]">
+                            <div className="absolute h-full flex items-center right-0 pr-4 z-[2] cursor-pointer">
                                 <div onClick={() => dispatch(updatePas(!booleanPas))}>
                                     {!booleanPas ? <AiOutlineEyeInvisible /> : <AiOutlineEye />}
                                 </div>
@@ -109,7 +109,7 @@ const Register = () => {
                             <div className={classParagraph("confPassword")}>
                                 <p>Confirmasi Password</p>
                             </div>
-                            <div className="absolute h-full flex items-center right-0 pr-4 z-[2]">
+                            <div className="absolute h-full flex items-center right-0 pr-4 z-[2] cursor-pointer">
                                 <div onClick={() => dispatch(updateConf(!booleanConf))}>
                                     {!booleanConf ? <AiOutlineEyeInvisible /> : <AiOutlineEye />}
                                 </div>
