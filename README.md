@@ -1,4 +1,4 @@
-# Aplikasi Catatan
+# Aplikasi FrontEnd Catatan
 
 Untuk Melihat Website bisa Klik Link [Catatan](https://safaaat.github.io/fontend_catatan).
 
