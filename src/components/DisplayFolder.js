@@ -16,15 +16,17 @@ const DisplayFolder = () => {
             <div className="container-app px-5">
                 <div className="grid gap-5">
                     {dataFolder.map((data) => (
-                        <div key={data.id} className="relative flex items-center">
-                            <input
-                                type="checkbox"
-                                value={data}
-                                className="absolute mx-1 cursor-pointer"
-                                name={data.judul}
-                                checked={checkeds.indexOf(data) === -1 ? false : true}
-                                onChange={() => dispatch(handleCekbox(data))}
-                            />
+                        <div key={data.id} className="relative flex items-center ">
+                            <div className="absolute w-full h-full">
+                                <input
+                                    type="checkbox"
+                                    value={data}
+                                    className={activeChekbox ? "checkbox-folder before:z-[1]" : "checkbox-folder"}
+                                    name={data.judul}
+                                    checked={checkeds.indexOf(data) === -1 ? false : true}
+                                    onChange={() => dispatch(handleCekbox(data))}
+                                />
+                            </div>
                             <div
                                 className={activeChekbox ? "box-folder ml-8" : "box-folder"}
                                 onClick={() => navigate(`isi-folder/${data.id}`)}

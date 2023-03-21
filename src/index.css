@@ -153,6 +153,9 @@
 .box-folder{
     @apply flex items-center px-2 gap-2 cursor-pointer relative bg-white transition-all duration-300
 }
+.checkbox-folder{
+    @apply cursor-pointer before:absolute before:left-0 before:top-0 before:bg-transparent before:w-full before:h-full
+}
 /* Display Folder End */
 
 /* Notfound */
