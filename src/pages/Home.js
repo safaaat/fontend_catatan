@@ -8,6 +8,7 @@ import { useSelector, useDispatch } from "react-redux";
 import AlertRemoveCatatan from "../components/AlertRemoveCatatan";
 import checkedsToId from "../utils/checkedsToId";
 import { deleteCatatan, getCatatan, resetSuccess } from "../features/restApiCatatans";
+import { refreshToken } from "../features/restApiLoginRegister";
 
 const Home = () => {
     const { user } = useSelector(state => state.loginRegis)
@@ -20,13 +21,15 @@ const Home = () => {
     const dispatch = useDispatch();
 
     useEffect(() => {
+        dispatch(refreshToken());
+
         if (active === true) {
             setTimeout(() => {
                 setHiddenHome(active);
             }, 800);
         }
         if (active === false) return setHiddenHome(active);
-    }, [active]);
+    }, [active, dispatch]);
 
     const onSubmitRemoveCatatan = () => {
         let data = checkedsToId(checkeds)

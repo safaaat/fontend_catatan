@@ -41,6 +41,12 @@ export const RegisterUser = createAsyncThunk("user/registerUser", async (user, t
     }
 })
 
+export const refreshToken = createAsyncThunk("user/refreshToken", async () => {
+    const response = await axios.get(`${process.env.React_App_Link_Api}token`);
+
+    console.log(response)
+})
+
 export const restApiLogin = createSlice({
     name: "loginRegis",
     initialState,
